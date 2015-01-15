@@ -18,7 +18,6 @@ int aprox(points_t *points, FILE *ouf, double *y, int m){
 	double a=0,psb=0,psa=0;
 	double *sa=init_s(m);
 	double *sb=init_s(m);
-	FILE *outa=fopen("wspol", "w");
 	for(i=0; i<m; i++)
 	{	sa[i]=0;
 		sb[i]=0;
@@ -29,7 +28,6 @@ int aprox(points_t *points, FILE *ouf, double *y, int m){
 		}
 		sa[i]=sa[i]*2/points->n;
 		sb[i]=sb[i]*2/points->n;
-		fprintf(outa,"%f %f\n", sa[i], sb[i]);	
 	}
 
 
@@ -47,6 +45,5 @@ int aprox(points_t *points, FILE *ouf, double *y, int m){
 		fprintf(ouf, "%f %f \n", points->x[i], y[i]);
 		psa=psb=0;
 	}
-	printf("%f\n",a);
 	return 0;
 }
